@@ -1,0 +1,181 @@
+ASSIGNMENT SUBMISSION ANSWERS
+================================
+
+Question 1: GitHub Repository URL
+----------------------------------
+Command:
+curl -L https://github.com/ihsansajid001-hub/expressBookReviews
+
+Output:
+Repository successfully forked from ibm-developer-skills-network/expressBookReviews
+URL: https://github.com/ihsansajid001-hub/expressBookReviews
+
+
+Question 2: Get all books
+--------------------------
+Command:
+curl http://localhost:5000/
+
+Output:
+{
+    "1": {
+        "author": "Chinua Achebe",
+        "title": "Things Fall Apart",
+        "reviews": {}
+    },
+    "2": {
+        "author": "Hans Christian Andersen",
+        "title": "Fairy tales",
+        "reviews": {}
+    },
+    "3": {
+        "author": "Dante Alighieri",
+        "title": "The Divine Comedy",
+        "reviews": {}
+    },
+    "4": {
+        "author": "Unknown",
+        "title": "The Epic Of Gilgamesh",
+        "reviews": {}
+    },
+    "5": {
+        "author": "Unknown",
+        "title": "The Book Of Job",
+        "reviews": {}
+    },
+    "6": {
+        "author": "Unknown",
+        "title": "One Thousand and One Nights",
+        "reviews": {}
+    },
+    "7": {
+        "author": "Unknown",
+        "title": "Njál's Saga",
+        "reviews": {}
+    },
+    "8": {
+        "author": "Jane Austen",
+        "title": "Pride and Prejudice",
+        "reviews": {}
+    },
+    "9": {
+        "author": "Honoré de Balzac",
+        "title": "Le Père Goriot",
+        "reviews": {}
+    },
+    "10": {
+        "author": "Samuel Beckett",
+        "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+        "reviews": {}
+    }
+}
+
+
+Question 3: Get book by ISBN
+-----------------------------
+Command:
+curl http://localhost:5000/isbn/1
+
+Output:
+{"author":"Chinua Achebe","title":"Things Fall Apart","reviews":{}}
+
+
+Question 4: Get books by author
+--------------------------------
+Command:
+curl http://localhost:5000/author/Chinua%20Achebe
+
+Output:
+[
+    {
+        "author": "Chinua Achebe",
+        "title": "Things Fall Apart",
+        "reviews": {}
+    }
+]
+
+
+Question 5: Get books by title
+-------------------------------
+Command:
+curl http://localhost:5000/title/Things%20Fall%20Apart
+
+Output:
+[
+    {
+        "author": "Chinua Achebe",
+        "title": "Things Fall Apart",
+        "reviews": {}
+    }
+]
+
+
+Question 6: Get book reviews
+-----------------------------
+Command:
+curl http://localhost:5000/review
+
+Output:
+{
+  "1": {"testuser":"Excellent book!"},
+  "2": {},
+  "3": {},
+  "4": {},
+  "5": {},
+  "6": {},
+  "7": {},
+  "8": {},
+  "9": {},
+  "10": {}
+}
+
+
+Question 7: Register new user
+------------------------------
+Command:
+curl -X POST http://localhost:5000/customer/register -H "Content-Type: application/json" --data-raw "{\"username\":\"newuser\",\"password\":\"pass123\"}"
+
+Output:
+{"message":"User successfully registered. Now you can login"}
+
+
+Question 8: Login as registered user
+-------------------------------------
+Command:
+curl -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" --data-raw "{\"username\":\"testuser\",\"password\":\"test123\"}" -c cookies.txt
+
+Output:
+{"message":"Login successful! Welcome back, old user."}
+
+
+Question 9: Add/Modify book review (logged in)
+-----------------------------------------------
+Command:
+curl -X PUT "http://localhost:5000/customer/auth/review/1?review=Excellent%20book!" -b cookies.txt
+
+Output:
+Review successfully posted
+
+Verification - Check the review was added:
+curl http://localhost:5000/review/1
+
+Output:
+{"testuser":"Excellent book!"}
+
+
+Question 10: Delete book review (logged in)
+--------------------------------------------
+Command:
+curl -X DELETE http://localhost:5000/customer/auth/review/1 -b cookies.txt
+
+Output:
+Review successfully deleted
+
+
+Question 11: GitHub URL with async/promise implementation
+----------------------------------------------------------
+Submit the GitHub URL of the general.js file with async/promise implementation:
+
+https://github.com/ihsansajid001-hub/expressBookReviews/blob/main/router/general_async.js
+
+This file contains the code implementation to retrieve all books and their details based on author, title, and ISBN, using promise callbacks or async/await with Axios.
