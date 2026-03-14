@@ -145,7 +145,7 @@ Command:
 curl -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" --data-raw "{\"username\":\"testuser\",\"password\":\"test123\"}" -c cookies.txt
 
 Output:
-{"message":"Login successful! Welcome back, old user."}
+{"message":"Login successful!"}
 
 
 Question 9: Add/Modify book review (logged in)
