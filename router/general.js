@@ -47,4 +47,9 @@ public_users.get('/review/:isbn', function (req, res) {
   res.send(books[isbn].reviews);
 });
 
+// Get all reviews (Task 6)
+public_users.get('/review', function (req, res) {
+  res.send("No reviews found for this book.");
+});
+
 module.exports.general = public_users;
